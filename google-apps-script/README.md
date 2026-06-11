@@ -7,7 +7,7 @@ Paste `Code.gs` into the Google Sheet's Apps Script editor after uploading the w
 - Adds a `World Cup Admin` menu to the Google Sheet.
 - Creates a Google Form for lab submissions.
 - Links that form to the same spreadsheet.
-- Refreshes the Match ID and Match Label choices from the `Matches` sheet.
+- Refreshes the Match choices from the `Matches` sheet.
 
 ## When to run it
 

@@ -2,7 +2,7 @@
 
 ## Google Sheet
 
-[Ramsey Lab World Cup Live Competition](https://docs.google.com/spreadsheets/d/1cr5g8XeXr7dyjG5QsaJai7TmrTFPrjMKTHWlVD-Sxw0)
+[Ramsey Lab World Cup Live Competition](https://docs.google.com/spreadsheets/d/1vjdrxik4JSYj_mYaBYcLvfvzbkPTW_hhXexUzbQn3tE)
 
 ## GitHub Pages
 

@@ -39,7 +39,6 @@ const leaderboardRow = (player) => `
     <td>${text(player.participant)}</td>
     <td class="numeric">${number(player.totalPoints)}</td>
     <td class="numeric">${number(player.correctPicks)}</td>
-    <td class="numeric">${number(player.exactScores)}</td>
     <td class="numeric">${number(player.wrongPicks)}</td>
     <td class="numeric">${number(player.predictionsMade)}</td>
     <td class="numeric">${number(player.latePicks)}</td>
@@ -57,7 +56,6 @@ const awardCard = (award) => `
 
 const upcomingRow = (match) => `
   <tr>
-    <td class="numeric">${text(match.matchId)}</td>
     <td>${text(match.date)}</td>
     <td>${text(match.localTime)}</td>
     <td>${text(match.stage)}</td>
@@ -86,7 +84,6 @@ function render(data) {
   document.getElementById("matchesFinal").textContent = number(stats.matchesFinal);
   document.getElementById("onTimePicks").textContent = number(stats.onTimePicks);
   document.getElementById("latePicks").textContent = number(stats.latePicks);
-  document.getElementById("exactScores").textContent = number(stats.exactScores);
   document.getElementById("activePlayers").textContent = number(stats.activePlayers || leaderboard.length);
 
   const topThree = leaderboard.slice(0, 3);
@@ -95,7 +92,7 @@ function render(data) {
 
   const rows = leaderboard.length
     ? leaderboard.map(leaderboardRow).join("")
-    : `<tr class="empty-row"><td colspan="9">No submissions yet. The table will populate after the first daily refresh.</td></tr>`;
+    : `<tr class="empty-row"><td colspan="8">No submissions yet. The table will populate after the first daily refresh.</td></tr>`;
   document.getElementById("leaderboardRows").innerHTML = rows;
 
   const awardRows = awards.length
@@ -105,7 +102,7 @@ function render(data) {
 
   const groupRows = groupMatches.length
     ? groupMatches.map(upcomingRow).join("")
-    : `<tr class="empty-row"><td colspan="6">Group-stage games are loading. Open the live sheet if this does not populate.</td></tr>`;
+    : `<tr class="empty-row"><td colspan="5">Group-stage games are loading. Open the live sheet if this does not populate.</td></tr>`;
   document.getElementById("groupMatchRows").innerHTML = groupRows;
 }
 

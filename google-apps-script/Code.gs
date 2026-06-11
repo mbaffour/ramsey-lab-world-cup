@@ -1,5 +1,23 @@
 const WORLD_CUP_FORM_TITLE = 'Ramsey Lab World Cup Predictions';
 const WORLD_CUP_MATCHES_SHEET = 'Matches';
+const WORLD_CUP_PARTICIPANTS = [
+  'M1',
+  'M2',
+  'Jolene',
+  'Lupita',
+  'Gillie',
+  'Marianna',
+  'Cameron',
+  'Adrian',
+  'Vedh',
+  'Angelina',
+  'Teja',
+  'Matthew',
+  'Mia',
+  'Enya',
+  'Bevin',
+  'Luis',
+];
 
 function onOpen() {
   SpreadsheetApp.getUi()
@@ -17,7 +35,7 @@ function createOrRefreshPredictionForm() {
 
   form.setTitle(WORLD_CUP_FORM_TITLE);
   form.setDescription(
-    'Submit Ramsey Lab World Cup predictions. Match ID 1 can be submitted anytime; other matches should be submitted before kickoff.'
+    'Submit Ramsey Lab World Cup predictions. The first listed game can be submitted anytime; other matches should be submitted before kickoff.'
   );
   form.setAllowResponseEdits(false);
   form.setCollectEmail(false);
@@ -41,32 +59,21 @@ function rebuildFormItems_(form, matches) {
     form.deleteItem(existing[index]);
   }
 
-  form.addTextItem()
+  form.addListItem()
     .setTitle('Participant')
+    .setChoiceValues(WORLD_CUP_PARTICIPANTS)
     .setRequired(true);
 
   form.addListItem()
-    .setTitle('Match ID')
-    .setChoiceValues(matches.map(match => String(match.id)))
-    .setRequired(true);
-
-  form.addListItem()
-    .setTitle('Match Label')
+    .setTitle('Match')
     .setChoiceValues(matches.map(match => match.label))
-    .setRequired(false);
-
-  form.addTextItem()
-    .setTitle('Prediction')
-    .setHelpText('Group matches: Home, Draw, or Away. Knockout matches: type the advancing team name exactly as it appears in Matches.')
     .setRequired(true);
 
-  form.addTextItem()
-    .setTitle('Pred Home Goals')
-    .setHelpText('Optional exact-score prediction.');
-
-  form.addTextItem()
-    .setTitle('Pred Away Goals')
-    .setHelpText('Optional exact-score prediction.');
+  form.addListItem()
+    .setTitle('Prediction')
+    .setChoiceValues(['Team 1 win', 'Draw', 'Team 2 win'])
+    .setHelpText('Team 1 and Team 2 are listed in the selected match.')
+    .setRequired(true);
 }
 
 function getOpenMatches_() {
@@ -89,6 +96,6 @@ function getOpenMatches_() {
     .filter(row => row[statusCol] !== 'Final' && !row[actualCol])
     .map(row => ({
       id: row[matchIdCol],
-      label: `${row[matchIdCol]} - ${row[teamOneCol]} vs ${row[teamTwoCol]} (${row[dateCol]} ${row[timeCol]})`,
+      label: `${row[teamOneCol]} vs ${row[teamTwoCol]} (${row[dateCol]} ${row[timeCol]})`,
     }));
 }

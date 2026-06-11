@@ -24,6 +24,8 @@ Live links are tracked in `LIVE_LINKS.md`.
 7. Submit one test response and check `Scoring`, `Leaderboard`, and `Dashboard`.
 8. Share the form link with the lab.
 
+Participant names are locked to a dropdown: `M1`, `M2`, `Jolene`, `Lupita`, `Gillie`, `Marianna`, `Cameron`, `Adrian`, `Vedh`, `Angelina`, `Teja`, `Matthew`, `Mia`, `Enya`, `Bevin`, and `Luis`.
+
 ## GitHub Pages launch
 
 The GitHub repository and Pages site are already created:
@@ -66,26 +68,25 @@ In GitHub:
 ## Adding future matches
 
 1. Add each future match to the next blank row in `Matches`.
-2. Use a new unique `Match ID`.
+2. Use a new unique internal `Match ID`; players will not see it.
 3. Fill `Date`, `Local Time`, `Stage`, `Group`, `Team 1 / Home`, `Team 2 / Away`, `Venue`, and `City`.
 4. Leave final-score columns blank until the match is played.
-5. Run `World Cup Admin` -> `Create or refresh prediction form` so the Google Form gets the new Match IDs.
+5. Run `World Cup Admin` -> `Create or refresh prediction form` so the Google Form gets the new match list.
 6. Run the GitHub workflow manually or wait for the daily refresh.
 
 ## Submission flow
 
-- Lab members submit predictions through the Google Form.
+- Lab members submit predictions through the Google Form by choosing a match and Team 1 win / Draw / Team 2 win.
 - The Google Sheet scores everything.
 - GitHub Actions pulls the published leaderboard CSV at the end of each day.
 - The GitHub Pages site updates all visible scores at once.
 
 ## Scoring
 
-- Correct group-stage result or knockout advancing team: `3`
+- Correct result: `3`
 - Wrong eligible prediction: `-1`
-- Exact score bonus: `10`
 - No prediction: `0`
 - Late prediction: `0`
-- First game exception: `Match ID 1` can be submitted anytime and still scores normally.
+- First game exception: the first listed game can be submitted anytime and still scores normally.
 
 The workbook and public site are script-free in the browser, so no GitHub write token or Google credential is exposed to lab members.

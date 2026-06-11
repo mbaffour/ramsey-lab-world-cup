@@ -4,7 +4,7 @@
 
 The workbook has been uploaded and converted to a native Google Sheet:
 
-- `https://docs.google.com/spreadsheets/d/1cr5g8XeXr7dyjG5QsaJai7TmrTFPrjMKTHWlVD-Sxw0`
+- `https://docs.google.com/spreadsheets/d/1vjdrxik4JSYj_mYaBYcLvfvzbkPTW_hhXexUzbQn3tE`
 
 The spreadsheet timezone has been set to `America/Chicago`.
 
@@ -35,6 +35,6 @@ Copy each CSV URL into the matching GitHub Actions secret.
 ## Adding future matches
 
 1. Add new matches to blank rows in `Matches`.
-2. Keep Match IDs unique.
+2. Keep internal Match IDs unique; players will only see match names.
 3. Run `World Cup Admin` -> `Create or refresh prediction form`.
 4. The public GitHub site updates after the next scheduled workflow run.

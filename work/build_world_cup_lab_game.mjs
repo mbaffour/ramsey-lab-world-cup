@@ -47,6 +47,24 @@ const light = "#F7FAFC";
 const mid = "#E5E7EB";
 const ink = "#111827";
 const muted = "#6B7280";
+const participantNames = [
+  "M1",
+  "M2",
+  "Jolene",
+  "Lupita",
+  "Gillie",
+  "Marianna",
+  "Cameron",
+  "Adrian",
+  "Vedh",
+  "Angelina",
+  "Teja",
+  "Matthew",
+  "Mia",
+  "Enya",
+  "Bevin",
+  "Luis",
+];
 
 function title(sheet, range, text, fill = navy) {
   const r = sheet.getRange(range);
@@ -100,11 +118,11 @@ start.getRange("A3:H3").merge();
 start.getRange("A3:H3").values = [["A live Google Sheets game for match predictions, lab trash talk, exact-score bonuses, and a leaderboard that updates as submissions come in."]];
 start.getRange("A3:H3").format = { fill: light, font: { color: ink, size: 12 }, wrapText: true };
 start.getRange("A5:B12").values = [
-  ["What the lab uses", "Share the Google Form. Players submit name, match ID, prediction, and optional exact score."],
+  ["What the lab uses", "Share the Google Form. Players submit name, match, and Team 1 win / Draw / Team 2 win."],
   ["What the admin updates", "Enter final scores in Matches columns I:J and knockout advancing teams in column L."],
   ["What updates live", "Scoring, Leaderboard, Dashboard, Participants, and Fun Awards."],
-  ["Scoring", "Correct result or advancing team = 3. Wrong eligible prediction = -1. Exact score bonus = 10. Late picks = 0."],
-  ["Late rule", "A prediction submitted at or after the local kickoff timestamp scores 0, except Match ID 1 can be submitted anytime."],
+  ["Scoring", "Correct result = 3. Wrong eligible prediction = -1. Late picks = 0."],
+  ["Late rule", "A prediction submitted at or after the local kickoff timestamp scores 0, except the first listed game can be submitted anytime."],
   ["Google Forms tab", "Link a form to this spreadsheet. If Google creates a new response tab, rename it to Form Responses 1 or update Scoring formulas."],
   ["Fairness", "Turn off response editing and close each matchday form before kickoff if you want the cleanest game."],
   ["Launch flow", "Upload this workbook to Google Sheets, create/link the form, test one fake response, then share the form with the lab."],
@@ -129,6 +147,7 @@ start.getRange("A14:H16").values = [["Tip: the workbook is script-free. Everythi
 note(start.getRange("A14:H16"));
 
 setup.getRange("A1:H1").values = [["Participant Name", "Lab Nickname", "Favorite Team", "Notes", "", "Valid Group Outcomes", "Scoring", "Points"]];
+setup.getRange(`A2:A${participantNames.length + 1}`).values = participantNames.map((name) => [name]);
 setup.getRange("F2:H7").values = [
   ["Home", "Correct result/team advancing", 3],
   ["Draw", "Wrong result/team advancing", -1],
@@ -156,17 +175,17 @@ matches.getRange(`I2:J${maxMatchRows}`).format = { fill: "#ECFDF5", borders: { p
 matches.getRange(`L2:L${maxMatchRows}`).format = { fill: "#EFF6FF", borders: { preset: "all", style: "thin", color: "#BFDBFE" } };
 matches.freezePanes.freezeRows(1);
 
-responses.getRange("A1:G1").values = [["Timestamp", "Participant", "Match ID", "Match Label", "Prediction", "Pred Home Goals", "Pred Away Goals"]];
+responses.getRange("A1:G1").values = [["Timestamp", "Participant", "Match", "Prediction", "Reserved", "Reserved", "Reserved"]];
 header(responses.getRange("A1:G1"), coral);
 body(responses.getRange("A2:G500"));
 responses.getRange("I1:M8").values = [
   ["Do not type here after launch", null, null, null, null],
-  ["Google Forms should write into columns A:G on this tab.", null, null, null, null],
+  ["Google Forms should write into columns A:D on this tab.", null, null, null, null],
   ["If Forms creates a different response tab, rename that tab to Form Responses 1.", null, null, null, null],
   ["Recommended form questions:", null, null, null, null],
-  ["Participant", "Match ID", "Match Label", "Prediction", "Pred Home Goals"],
-  ["Pred Away Goals", "", "", "", ""],
-  ["Predicted goals are optional. Blank exact-score fields are not penalized.", null, null, null, null],
+  ["Participant", "Match", "Prediction", "", ""],
+  ["", "", "", "", ""],
+  ["Prediction choices are Team 1 win, Draw, or Team 2 win.", null, null, null, null],
   ["Keep response editing off for fairness.", null, null, null, null],
 ];
 responses.getRange("I1:M1").merge();
@@ -175,7 +194,7 @@ note(responses.getRange("I2:M8"));
 responses.freezePanes.freezeRows(1);
 
 scoring.getRange("A1:P1").values = [[
-  "Timestamp", "Participant", "Match ID", "Match Label", "Prediction", "Pred Home Goals", "Pred Away Goals", "Stage",
+  "Timestamp", "Participant", "Match", "Match Label", "Prediction", "Pred Home Goals", "Pred Away Goals", "Stage",
   "Kickoff", "Actual Result", "Team Advanced", "Eligible?", "Result Points", "Exact Score Bonus", "Total Points", "Status / Notes",
 ]];
 header(scoring.getRange("A1:P1"), navy);
@@ -184,20 +203,20 @@ scoring.getRange("A2:G2").formulas = [[
   "='Form Responses 1'!A2",
   "='Form Responses 1'!B2",
   "='Form Responses 1'!C2",
+  "='Form Responses 1'!C2",
   "='Form Responses 1'!D2",
-  "='Form Responses 1'!E2",
-  "='Form Responses 1'!F2",
-  "='Form Responses 1'!G2",
+  "",
+  "",
 ]];
 scoring.getRange("A2:G500").fillDown();
 scoring.getRange("H2:P2").formulas = [[
-  `=IF($C2="","",IFERROR(VLOOKUP($C2,Matches!$A$2:$Q$${maxMatchRows},5,FALSE),"Unknown"))`,
-  `=IF($C2="","",IFERROR(VLOOKUP($C2,Matches!$A$2:$Q$${maxMatchRows},16,FALSE),""))`,
-  `=IF($C2="","",IFERROR(VLOOKUP($C2,Matches!$A$2:$Q$${maxMatchRows},11,FALSE),""))`,
-  `=IF($C2="","",IFERROR(VLOOKUP($C2,Matches!$A$2:$Q$${maxMatchRows},12,FALSE),""))`,
-  "=IF($A2=\"\",\"\",IF($C2=1,\"Yes\",IF(OR($I2=\"\",$A2<$I2),\"Yes\",\"Late\")))",
-  "=IF($A2=\"\",\"\",IF($L2<>\"Yes\",0,IF($E2=\"\",0,IF($J2=\"\",0,IF($H2=\"Group\",IF($E2=$J2,Setup!$H$2,Setup!$H$3),IF($E2=$K2,Setup!$H$2,Setup!$H$3))))))",
-  `=IF($A2="","",IF($L2<>"Yes",0,IF(OR($F2="",$G2=""),0,IF(AND($F2=VLOOKUP($C2,Matches!$A$2:$Q$${maxMatchRows},9,FALSE),$G2=VLOOKUP($C2,Matches!$A$2:$Q$${maxMatchRows},10,FALSE)),Setup!$H$5,0))))`,
+  `=IF($C2="","",IFERROR(INDEX(Matches!$E$2:$E$${maxMatchRows},MATCH($C2,Matches!$O$2:$O$${maxMatchRows},0)),"Unknown"))`,
+  `=IF($C2="","",IFERROR(INDEX(Matches!$P$2:$P$${maxMatchRows},MATCH($C2,Matches!$O$2:$O$${maxMatchRows},0)),""))`,
+  `=IF($C2="","",IFERROR(INDEX(Matches!$K$2:$K$${maxMatchRows},MATCH($C2,Matches!$O$2:$O$${maxMatchRows},0)),""))`,
+  `=IF($C2="","",IFERROR(INDEX(Matches!$L$2:$L$${maxMatchRows},MATCH($C2,Matches!$O$2:$O$${maxMatchRows},0)),""))`,
+  `=IF($A2="","",IF(INDEX(Matches!$A$2:$A$${maxMatchRows},MATCH($C2,Matches!$O$2:$O$${maxMatchRows},0))=1,"Yes",IF(OR($I2="",$A2<$I2),"Yes","Late")))`,
+  `=IF($A2="","",IF($L2<>"Yes",0,IF($E2="",0,IF($J2="",0,IF(IF($E2="Team 1 win","Home",IF($E2="Team 2 win","Away",$E2))=$J2,Setup!$H$2,Setup!$H$3)))))`,
+  "=0",
   "=IF($A2=\"\",\"\",$M2+$N2)",
   "=IF($A2=\"\",\"\",IF($L2=\"Late\",\"Late - 0 points\",IF($J2=\"\",\"Waiting for result\",IF($O2>0,\"Scored\",IF($O2<0,\"Wrong pick\",\"No points\")))))",
 ]];
@@ -293,11 +312,10 @@ title(formSetup, "A1:C1", "Google Form Setup Guide", green);
 formSetup.getRange("A3:C12").values = [
   ["Form question", "Type", "Notes"],
   ["Participant", "Short answer or dropdown", "Use consistent names for cleaner ranking."],
-  ["Match ID", "Dropdown", "Use the IDs listed on Matches. Rows are reserved through Match ID 199 for future additions."],
-  ["Match Label", "Dropdown or short answer", "Optional for humans; scoring uses Match ID."],
-  ["Prediction", "Short answer", "Group games: Home, Draw, Away. Knockouts: the advancing team name."],
-  ["Pred Home Goals", "Number", "Optional. Leave blank if they only want result points."],
-  ["Pred Away Goals", "Number", "Optional. Exact score bonus needs both goal fields."],
+  ["Match", "Dropdown", "Use the match text, no Match ID needed."],
+  ["Prediction", "Dropdown", "Team 1 win, Draw, or Team 2 win."],
+  ["", "", ""],
+  ["", "", ""],
   ["Settings", "Disable response editing", "Makes timestamps fairer."],
   ["Response destination", "Apps Script helper", "Paste google-apps-script/Code.gs into Extensions > Apps Script, then use the World Cup Admin menu."],
   ["If a new tab appears", "Rename it", "Use the exact tab name Form Responses 1."],
@@ -306,7 +324,7 @@ header(formSetup.getRange("A3:C3"), navy);
 body(formSetup.getRange("A4:C12"));
 formSetup.getRange("A14:C19").values = [
   ["Suggested announcement copy", null, null],
-  ["Ramsey Lab World Cup Challenge is live. Submit predictions through the form before kickoff. For Match ID 1 only, submissions can come in anytime. Correct result or advancing team is 3 points, wrong eligible pick is -1, exact score is +10, and other late submissions are 0. Dashboard and leaderboard update live.", null, null],
+  ["Ramsey Lab World Cup Challenge is live. Pick the match, choose Team 1 win / Draw / Team 2 win, and submit before kickoff. The first game can be submitted anytime. Correct result is 3 points, wrong eligible pick is -1, and other late submissions are 0. Dashboard and leaderboard update live.", null, null],
   ["Admin rhythm", null, null],
   ["Before each matchday: check the form questions and close/reopen as needed.", null, null],
   ["After each game: enter final goals in Matches columns I:J and the leaderboard updates.", null, null],
@@ -320,8 +338,7 @@ title(participants, "A1:F1", "Players", teal);
 participants.getRange("A3:F3").values = [["Participant", "Nickname", "Favorite Team", "Predictions Made", "Total Points", "Status"]];
 header(participants.getRange("A3:F3"), navy);
 body(participants.getRange("A4:F103"));
-participants.getRange("A4").formulas = [["=Leaderboard!B4"]];
-participants.getRange("A4:A103").fillDown();
+participants.getRange(`A4:A${participantNames.length + 3}`).values = participantNames.map((name) => [name]);
 participants.getRange("D4").formulas = [["=IF($A4=\"\",\"\",COUNTIF(Scoring!$B$2:$B$500,$A4))"]];
 participants.getRange("E4").formulas = [["=IF($A4=\"\",\"\",SUMIF(Scoring!$B$2:$B$500,$A4,Scoring!$O$2:$O$500))"]];
 participants.getRange("F4").formulas = [["=IF($A4=\"\",\"\",IF($D4=0,\"Signed up, stayed silent\",IF($E4=MAX($E$4:$E$103),\"In the title race\",\"Active\")))"]];

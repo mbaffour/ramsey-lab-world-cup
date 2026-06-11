@@ -47,9 +47,9 @@
       <section class="simple-play">
         <div>
           <h2>How to Play</h2>
-          <p>Pick a Match ID from the table, submit your name and prediction, then check the leaderboard after the daily update.</p>
+          <p>Pick a match from the table, submit your name, and choose Team 1 win, Draw, or Team 2 win.</p>
         </div>
-        <a id="sheetLink" class="button secondary" href="https://docs.google.com/spreadsheets/d/1cr5g8XeXr7dyjG5QsaJai7TmrTFPrjMKTHWlVD-Sxw0" target="_blank" rel="noreferrer">
+        <a id="sheetLink" class="button secondary" href="https://docs.google.com/spreadsheets/d/1vjdrxik4JSYj_mYaBYcLvfvzbkPTW_hhXexUzbQn3tE" target="_blank" rel="noreferrer">
           Open Live Sheet
         </a>
       </section>
@@ -71,9 +71,8 @@
           <dl class="rules-list">
             <div><dt>Correct result or advancing team</dt><dd>+3</dd></div>
             <div><dt>Wrong eligible pick</dt><dd>-1</dd></div>
-            <div><dt>Exact score bonus</dt><dd>+10</dd></div>
             <div><dt>Late prediction</dt><dd>0</dd></div>
-            <div><dt>Match ID 1 exception</dt><dd>Anytime</dd></div>
+            <div><dt>First game exception</dt><dd>Anytime</dd></div>
           </dl>
         </aside>
       </section>
@@ -81,20 +80,18 @@
       <section class="stats-grid" aria-label="Competition stats">
         <article><span>On-time picks</span><strong id="onTimePicks">0</strong></article>
         <article><span>Late picks</span><strong id="latePicks">0</strong></article>
-        <article><span>Exact scores</span><strong id="exactScores">0</strong></article>
         <article><span>Active players</span><strong id="activePlayers">0</strong></article>
       </section>
 
       <section class="table-section">
         <div class="section-title">
           <h2>All Group Stage Games</h2>
-          <p>Use the Match ID from this table. Match ID 1 is the only game with the anytime-submission exception.</p>
+          <p>These are the games people will pick from. The first game is the only anytime-submission exception.</p>
         </div>
         <div class="table-wrap">
           <table class="matches-table">
             <thead>
               <tr>
-                <th>Match ID</th>
                 <th>Date</th>
                 <th>Local time</th>
                 <th>Stage</th>
@@ -120,7 +117,6 @@
                 <th>Participant</th>
                 <th>Total</th>
                 <th>Correct</th>
-                <th>Exact</th>
                 <th>Wrong</th>
                 <th>Made</th>
                 <th>Late</th>
