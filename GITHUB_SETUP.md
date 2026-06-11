@@ -4,7 +4,9 @@ Use this after the local folder is ready.
 
 ## 1. Create the repository
 
-Create a new GitHub repo, then upload/push this folder.
+The repository has been created:
+
+- `https://github.com/mbaffour/ramsey-lab-world-cup`
 
 If you have Git installed locally:
 
@@ -17,13 +19,13 @@ git remote add origin https://github.com/OWNER/REPO.git
 git push -u origin main
 ```
 
-This machine did not expose a working `git` executable during setup, so uploading the folder through GitHub's web UI is also fine.
+Git for Windows is installed on this machine at `C:\Program Files\Git`.
 
 ## 2. Enable Pages
 
-1. Go to `Settings` -> `Pages`.
-2. Set source to `GitHub Actions`.
-3. Run `Actions` -> `Deploy GitHub Pages` -> `Run workflow`.
+Pages is enabled through GitHub Actions:
+
+- `https://mbaffour.github.io/ramsey-lab-world-cup/`
 
 ## 3. Add Actions secrets
 

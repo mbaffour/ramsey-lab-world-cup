@@ -6,7 +6,11 @@
 
 ## GitHub Pages
 
-This will be available after the repository is pushed and the `Deploy GitHub Pages` workflow completes.
+[Ramsey Lab World Cup public scoreboard](https://mbaffour.github.io/ramsey-lab-world-cup/)
+
+## GitHub Repository
+
+[mbaffour/ramsey-lab-world-cup](https://github.com/mbaffour/ramsey-lab-world-cup)
 
 ## Google Form
 

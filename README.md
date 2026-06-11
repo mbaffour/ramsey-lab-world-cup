@@ -2,6 +2,8 @@
 
 This folder contains a ready-to-upload live competition workbook, a Google Apps Script helper for the player submission form, and a GitHub Pages scoreboard that refreshes from Google Sheets every night.
 
+Live links are tracked in `LIVE_LINKS.md`.
+
 ## Main file
 
 - `outputs/world_cup_lab_game/Ramsey_Lab_World_Cup_Live_Competition.xlsx`
@@ -24,12 +26,12 @@ This folder contains a ready-to-upload live competition workbook, a Google Apps 
 
 ## GitHub Pages launch
 
-1. Create a GitHub repository for this folder.
-2. Push this folder to GitHub.
-3. In the repository, go to `Settings` -> `Pages`.
-4. Set the source to `GitHub Actions`.
-5. Push to `main` or `master`.
-6. The `Deploy GitHub Pages` workflow publishes the `/docs` site.
+The GitHub repository and Pages site are already created:
+
+- Repository: `https://github.com/mbaffour/ramsey-lab-world-cup`
+- Scoreboard: `https://mbaffour.github.io/ramsey-lab-world-cup/`
+
+The `Deploy GitHub Pages` workflow publishes the `/docs` site.
 
 ## Daily update setup
 

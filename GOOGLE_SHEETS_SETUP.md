@@ -2,9 +2,11 @@
 
 ## Upload workbook
 
-1. Upload `outputs/world_cup_lab_game/Ramsey_Lab_World_Cup_Live_Competition.xlsx` to Google Drive.
-2. Open it with Google Sheets.
-3. Save it as a native Google Sheet.
+The workbook has been uploaded and converted to a native Google Sheet:
+
+- `https://docs.google.com/spreadsheets/d/1cr5g8XeXr7dyjG5QsaJai7TmrTFPrjMKTHWlVD-Sxw0`
+
+The spreadsheet timezone has been set to `America/Chicago`.
 
 ## Create the player form
 
