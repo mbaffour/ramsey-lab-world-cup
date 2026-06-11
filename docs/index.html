@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ramsey Lab World Cup Challenge</title>
+    <meta
+      name="description"
+      content="Live Ramsey Lab World Cup prediction challenge leaderboard."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <p class="utility">Ramsey Lab</p>
+        <h1>World Cup Challenge</h1>
+      </div>
+      <nav class="actions" aria-label="Competition actions">
+        <a id="submitLink" class="button primary" href="#" target="_blank" rel="noreferrer">
+          Submit Prediction
+        </a>
+        <a class="button secondary" href="#leaderboard">Leaderboard</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="status-band" aria-label="Competition status">
+        <div>
+          <span class="label">Last updated</span>
+          <strong id="lastUpdated">Loading...</strong>
+        </div>
+        <div>
+          <span class="label">Refresh</span>
+          <strong id="refreshCadence">Daily</strong>
+        </div>
+        <div>
+          <span class="label">Submissions</span>
+          <strong id="totalSubmissions">0</strong>
+        </div>
+        <div>
+          <span class="label">Matches final</span>
+          <strong id="matchesFinal">0</strong>
+        </div>
+      </section>
+
+      <section class="hero-grid">
+        <div class="leader-panel">
+          <div class="section-title">
+            <h2>Current Title Race</h2>
+            <p>Top three after the latest daily update.</p>
+          </div>
+          <div id="podium" class="podium" aria-live="polite"></div>
+        </div>
+
+        <aside class="rules-panel">
+          <div class="section-title">
+            <h2>Scoring</h2>
+            <p>Transparent, auditable, and just spicy enough.</p>
+          </div>
+          <dl class="rules-list">
+            <div><dt>Correct result or advancing team</dt><dd>+3</dd></div>
+            <div><dt>Wrong eligible pick</dt><dd>-1</dd></div>
+            <div><dt>Exact score bonus</dt><dd>+10</dd></div>
+            <div><dt>Late prediction</dt><dd>0</dd></div>
+            <div><dt>Match ID 1 exception</dt><dd>Anytime</dd></div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="stats-grid" aria-label="Competition stats">
+        <article><span>On-time picks</span><strong id="onTimePicks">0</strong></article>
+        <article><span>Late picks</span><strong id="latePicks">0</strong></article>
+        <article><span>Exact scores</span><strong id="exactScores">0</strong></article>
+        <article><span>Active players</span><strong id="activePlayers">0</strong></article>
+      </section>
+
+      <section class="table-section">
+        <div class="section-title">
+          <h2>Upcoming Matches</h2>
+          <p>Use the Match ID from this list when submitting predictions.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="matches-table">
+            <thead>
+              <tr>
+                <th>Match ID</th>
+                <th>Date</th>
+                <th>Local time</th>
+                <th>Stage</th>
+                <th>Match</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="upcomingRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="leaderboard" class="table-section">
+        <div class="section-title">
+          <h2>Leaderboard</h2>
+          <p>Ranked by total points, with ties ordered by the spreadsheet formulas.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Participant</th>
+                <th>Total</th>
+                <th>Correct</th>
+                <th>Exact</th>
+                <th>Wrong</th>
+                <th>Made</th>
+                <th>Late</th>
+                <th>Title</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="awards-section">
+        <div class="section-title">
+          <h2>Fun Awards</h2>
+          <p>For lab meeting projection and friendly scorekeeping drama.</p>
+        </div>
+        <div id="awards" class="awards-grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Powered by Google Forms, Google Sheets, GitHub Actions, and lab-wide confidence.</span>
+    </footer>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "updatedAt": "",
+    "refreshCadence": "Daily at 11:55 PM Central, plus manual workflow runs",
+    "formUrl": "#"
+  },
+  "stats": {
+    "totalSubmissions": 0,
+    "matchesFinal": 0,
+    "onTimePicks": 0,
+    "latePicks": 0,
+    "exactScores": 0,
+    "activePlayers": 0
+  },
+  "leaderboard": [],
+  "upcomingMatches": [],
+  "awards": [
+    {
+      "award": "Current Champion",
+      "winner": "TBD",
+      "description": "Most eligible total points"
+    },
+    {
+      "award": "Score Sniper",
+      "winner": "TBD",
+      "description": "Most exact scores"
+    },
+    {
+      "award": "Deadline Disaster",
+      "winner": "TBD",
+      "description": "Most late picks"
+    }
+  ]
+}

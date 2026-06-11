@@ -1,0 +1,38 @@
+name: Update scoreboard data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "55 4 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-scoreboard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build site data from Google Sheets
+        env:
+          LEADERBOARD_CSV_URL: ${{ secrets.LEADERBOARD_CSV_URL }}
+          AWARDS_CSV_URL: ${{ secrets.AWARDS_CSV_URL }}
+          DASHBOARD_CSV_URL: ${{ secrets.DASHBOARD_CSV_URL }}
+          SCORING_CSV_URL: ${{ secrets.SCORING_CSV_URL }}
+          MATCHES_CSV_URL: ${{ secrets.MATCHES_CSV_URL }}
+          FORM_URL: ${{ vars.FORM_URL }}
+          REFRESH_CADENCE: Daily at 11:55 PM Central, plus manual workflow runs
+        run: python scripts/update_site_data.py
+
+      - name: Commit updated data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update World Cup scoreboard data"
+          file_pattern: docs/data/site-data.json
