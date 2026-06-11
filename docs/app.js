@@ -77,7 +77,7 @@ function render(data) {
   const stats = data.stats || {};
   const leaderboard = data.leaderboard || [];
   const awards = data.awards || [];
-  const upcomingMatches = data.upcomingMatches || [];
+  const groupMatches = data.groupMatches || data.upcomingMatches || [];
 
   document.getElementById("submitLink").href = meta.formUrl || "#";
   document.getElementById("lastUpdated").textContent = formatUpdated(meta.updatedAt);
@@ -103,10 +103,10 @@ function render(data) {
     : awardCard({ award: "Current Champion", winner: "TBD", description: "No eligible picks yet." });
   document.getElementById("awards").innerHTML = awardRows;
 
-  const upcomingRows = upcomingMatches.length
-    ? upcomingMatches.map(upcomingRow).join("")
-    : `<tr class="empty-row"><td colspan="6">Upcoming matches will appear after the Matches tab is published as CSV.</td></tr>`;
-  document.getElementById("upcomingRows").innerHTML = upcomingRows;
+  const groupRows = groupMatches.length
+    ? groupMatches.map(upcomingRow).join("")
+    : `<tr class="empty-row"><td colspan="6">Group-stage games are loading. Open the live sheet if this does not populate.</td></tr>`;
+  document.getElementById("groupMatchRows").innerHTML = groupRows;
 }
 
 loadData()

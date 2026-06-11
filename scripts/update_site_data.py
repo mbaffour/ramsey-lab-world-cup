@@ -92,7 +92,7 @@ def awards_from_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     return awards
 
 
-def upcoming_matches_from_rows(rows: list[dict[str, str]], limit: int = 16) -> list[dict[str, str]]:
+def matches_from_rows(rows: list[dict[str, str]], group_only: bool, limit: int | None = None) -> list[dict[str, str]]:
     matches: list[dict[str, str]] = []
     for row in rows:
         match_id = first(row, "Match ID")
@@ -100,21 +100,24 @@ def upcoming_matches_from_rows(rows: list[dict[str, str]], limit: int = 16) -> l
         team_two = first(row, "Team 2 / Away", "Away", "Team 2")
         if not match_id or not team_one or not team_two:
             continue
+        stage = first(row, "Stage")
+        if group_only and stage.lower() != "group":
+            continue
         status = first(row, "Match Status", "Status")
         actual = first(row, "Actual Result")
-        if status.lower() == "final" or actual:
+        if not group_only and (status.lower() == "final" or actual):
             continue
         matches.append(
             {
                 "matchId": match_id,
                 "date": first(row, "Date"),
                 "localTime": first(row, "Local Time", "Kickoff Local Timestamp", "Time"),
-                "stage": first(row, "Stage"),
+                "stage": stage,
                 "label": first(row, "Match Label") or f"{team_one} vs {team_two}",
                 "status": status or "Awaiting result",
             }
         )
-    return matches[:limit]
+    return matches[:limit] if limit else matches
 
 
 def stats_from_scoring(rows: list[dict[str, str]], leaderboard: list[dict[str, object]]) -> dict[str, int]:
@@ -180,7 +183,19 @@ def main() -> int:
     awards = awards_from_rows(fetch_csv(awards_url)) if awards_url else []
 
     matches_url = os.environ.get("MATCHES_CSV_URL", "").strip()
-    upcoming_matches = upcoming_matches_from_rows(fetch_csv(matches_url)) if matches_url else []
+    existing: dict[str, object] = {}
+    if OUTPUT.exists():
+        try:
+            existing = json.loads(OUTPUT.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            existing = {}
+    if matches_url:
+        match_rows = fetch_csv(matches_url)
+        upcoming_matches = matches_from_rows(match_rows, group_only=False, limit=16)
+        group_matches = matches_from_rows(match_rows, group_only=True)
+    else:
+        upcoming_matches = existing.get("upcomingMatches", [])
+        group_matches = existing.get("groupMatches", [])
 
     payload = {
         "meta": {
@@ -194,6 +209,7 @@ def main() -> int:
         "stats": stats,
         "leaderboard": leaderboard,
         "upcomingMatches": upcoming_matches,
+        "groupMatches": group_matches,
         "awards": awards,
     }
 

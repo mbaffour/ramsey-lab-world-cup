@@ -10,10 +10,140 @@
     "onTimePicks": 0,
     "latePicks": 0,
     "exactScores": 0,
-    "activePlayers": 0
+    "activePlayers": 0,
+    "groupStageGames": 72
   },
   "leaderboard": [],
-  "upcomingMatches": [],
+  "upcomingMatches": [
+    {
+      "matchId": 1,
+      "date": "2026-06-11",
+      "localTime": "13:00",
+      "stage": "Group A",
+      "label": "Mexico vs South Africa",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 2,
+      "date": "2026-06-11",
+      "localTime": "20:00",
+      "stage": "Group A",
+      "label": "South Korea vs Czechia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 3,
+      "date": "2026-06-12",
+      "localTime": "15:00",
+      "stage": "Group B",
+      "label": "Canada vs Bosnia and Herzegovina",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 4,
+      "date": "2026-06-12",
+      "localTime": "18:00",
+      "stage": "Group D",
+      "label": "USA vs Paraguay",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 5,
+      "date": "2026-06-13",
+      "localTime": "21:00",
+      "stage": "Group C",
+      "label": "Haiti vs Scotland",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 6,
+      "date": "2026-06-13",
+      "localTime": "21:00",
+      "stage": "Group D",
+      "label": "Australia vs Türkiye",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 7,
+      "date": "2026-06-13",
+      "localTime": "18:00",
+      "stage": "Group C",
+      "label": "Brazil vs Morocco",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 8,
+      "date": "2026-06-13",
+      "localTime": "12:00",
+      "stage": "Group B",
+      "label": "Qatar vs Switzerland",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 9,
+      "date": "2026-06-14",
+      "localTime": "19:00",
+      "stage": "Group E",
+      "label": "Ivory Coast vs Ecuador",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 10,
+      "date": "2026-06-14",
+      "localTime": "12:00",
+      "stage": "Group E",
+      "label": "Germany vs Curaçao",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 11,
+      "date": "2026-06-14",
+      "localTime": "15:00",
+      "stage": "Group F",
+      "label": "Netherlands vs Japan",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 12,
+      "date": "2026-06-14",
+      "localTime": "20:00",
+      "stage": "Group F",
+      "label": "Sweden vs Tunisia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 13,
+      "date": "2026-06-15",
+      "localTime": "18:00",
+      "stage": "Group H",
+      "label": "Saudi Arabia vs Uruguay",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 14,
+      "date": "2026-06-15",
+      "localTime": "12:00",
+      "stage": "Group H",
+      "label": "Spain vs Cape Verde",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 15,
+      "date": "2026-06-15",
+      "localTime": "18:00",
+      "stage": "Group G",
+      "label": "Iran vs New Zealand",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 16,
+      "date": "2026-06-15",
+      "localTime": "12:00",
+      "stage": "Group G",
+      "label": "Belgium vs Egypt",
+      "status": "Awaiting result"
+    }
+  ],
   "awards": [
     {
       "award": "Current Champion",
@@ -29,6 +159,584 @@
       "award": "Deadline Disaster",
       "winner": "TBD",
       "description": "Most late picks"
+    }
+  ],
+  "groupMatches": [
+    {
+      "matchId": 1,
+      "date": "2026-06-11",
+      "localTime": "13:00",
+      "stage": "Group A",
+      "label": "Mexico vs South Africa",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 2,
+      "date": "2026-06-11",
+      "localTime": "20:00",
+      "stage": "Group A",
+      "label": "South Korea vs Czechia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 3,
+      "date": "2026-06-12",
+      "localTime": "15:00",
+      "stage": "Group B",
+      "label": "Canada vs Bosnia and Herzegovina",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 4,
+      "date": "2026-06-12",
+      "localTime": "18:00",
+      "stage": "Group D",
+      "label": "USA vs Paraguay",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 5,
+      "date": "2026-06-13",
+      "localTime": "21:00",
+      "stage": "Group C",
+      "label": "Haiti vs Scotland",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 6,
+      "date": "2026-06-13",
+      "localTime": "21:00",
+      "stage": "Group D",
+      "label": "Australia vs Türkiye",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 7,
+      "date": "2026-06-13",
+      "localTime": "18:00",
+      "stage": "Group C",
+      "label": "Brazil vs Morocco",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 8,
+      "date": "2026-06-13",
+      "localTime": "12:00",
+      "stage": "Group B",
+      "label": "Qatar vs Switzerland",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 9,
+      "date": "2026-06-14",
+      "localTime": "19:00",
+      "stage": "Group E",
+      "label": "Ivory Coast vs Ecuador",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 10,
+      "date": "2026-06-14",
+      "localTime": "12:00",
+      "stage": "Group E",
+      "label": "Germany vs Curaçao",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 11,
+      "date": "2026-06-14",
+      "localTime": "15:00",
+      "stage": "Group F",
+      "label": "Netherlands vs Japan",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 12,
+      "date": "2026-06-14",
+      "localTime": "20:00",
+      "stage": "Group F",
+      "label": "Sweden vs Tunisia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 13,
+      "date": "2026-06-15",
+      "localTime": "18:00",
+      "stage": "Group H",
+      "label": "Saudi Arabia vs Uruguay",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 14,
+      "date": "2026-06-15",
+      "localTime": "12:00",
+      "stage": "Group H",
+      "label": "Spain vs Cape Verde",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 15,
+      "date": "2026-06-15",
+      "localTime": "18:00",
+      "stage": "Group G",
+      "label": "Iran vs New Zealand",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 16,
+      "date": "2026-06-15",
+      "localTime": "12:00",
+      "stage": "Group G",
+      "label": "Belgium vs Egypt",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 17,
+      "date": "2026-06-16",
+      "localTime": "15:00",
+      "stage": "Group I",
+      "label": "France vs Senegal",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 18,
+      "date": "2026-06-16",
+      "localTime": "18:00",
+      "stage": "Group I",
+      "label": "Iraq vs Norway",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 19,
+      "date": "2026-06-16",
+      "localTime": "20:00",
+      "stage": "Group J",
+      "label": "Argentina vs Algeria",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 20,
+      "date": "2026-06-16",
+      "localTime": "21:00",
+      "stage": "Group J",
+      "label": "Austria vs Jordan",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 21,
+      "date": "2026-06-17",
+      "localTime": "19:00",
+      "stage": "Group L",
+      "label": "Ghana vs Panama",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 22,
+      "date": "2026-06-17",
+      "localTime": "15:00",
+      "stage": "Group L",
+      "label": "England vs Croatia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 23,
+      "date": "2026-06-17",
+      "localTime": "12:00",
+      "stage": "Group K",
+      "label": "Portugal vs Congo DR",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 24,
+      "date": "2026-06-17",
+      "localTime": "20:00",
+      "stage": "Group K",
+      "label": "Uzbekistan vs Colombia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 25,
+      "date": "2026-06-18",
+      "localTime": "12:00",
+      "stage": "Group A",
+      "label": "Czechia vs South Africa",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 26,
+      "date": "2026-06-18",
+      "localTime": "12:00",
+      "stage": "Group B",
+      "label": "Switzerland vs Bosnia and Herzegovina",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 27,
+      "date": "2026-06-18",
+      "localTime": "15:00",
+      "stage": "Group B",
+      "label": "Canada vs Qatar",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 28,
+      "date": "2026-06-18",
+      "localTime": "19:00",
+      "stage": "Group A",
+      "label": "Mexico vs South Korea",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 29,
+      "date": "2026-06-19",
+      "localTime": "21:00",
+      "stage": "Group C",
+      "label": "Brazil vs Haiti",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 30,
+      "date": "2026-06-19",
+      "localTime": "18:00",
+      "stage": "Group C",
+      "label": "Scotland vs Morocco",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 31,
+      "date": "2026-06-19",
+      "localTime": "20:00",
+      "stage": "Group D",
+      "label": "Türkiye vs Paraguay",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 32,
+      "date": "2026-06-19",
+      "localTime": "12:00",
+      "stage": "Group D",
+      "label": "USA vs Australia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 33,
+      "date": "2026-06-20",
+      "localTime": "16:00",
+      "stage": "Group E",
+      "label": "Germany vs Ivory Coast",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 34,
+      "date": "2026-06-20",
+      "localTime": "19:00",
+      "stage": "Group E",
+      "label": "Ecuador vs Curaçao",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 35,
+      "date": "2026-06-20",
+      "localTime": "12:00",
+      "stage": "Group F",
+      "label": "Netherlands vs Sweden",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 36,
+      "date": "2026-06-20",
+      "localTime": "22:00",
+      "stage": "Group F",
+      "label": "Tunisia vs Japan",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 37,
+      "date": "2026-06-21",
+      "localTime": "18:00",
+      "stage": "Group H",
+      "label": "Uruguay vs Cape Verde",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 38,
+      "date": "2026-06-21",
+      "localTime": "12:00",
+      "stage": "Group H",
+      "label": "Spain vs Saudi Arabia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 39,
+      "date": "2026-06-21",
+      "localTime": "12:00",
+      "stage": "Group G",
+      "label": "Belgium vs Iran",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 40,
+      "date": "2026-06-21",
+      "localTime": "18:00",
+      "stage": "Group G",
+      "label": "New Zealand vs Egypt",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 41,
+      "date": "2026-06-22",
+      "localTime": "20:00",
+      "stage": "Group I",
+      "label": "Norway vs Senegal",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 42,
+      "date": "2026-06-22",
+      "localTime": "17:00",
+      "stage": "Group I",
+      "label": "France vs Iraq",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 43,
+      "date": "2026-06-22",
+      "localTime": "12:00",
+      "stage": "Group J",
+      "label": "Argentina vs Austria",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 44,
+      "date": "2026-06-22",
+      "localTime": "20:00",
+      "stage": "Group J",
+      "label": "Jordan vs Algeria",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 45,
+      "date": "2026-06-23",
+      "localTime": "16:00",
+      "stage": "Group L",
+      "label": "England vs Ghana",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 46,
+      "date": "2026-06-23",
+      "localTime": "19:00",
+      "stage": "Group L",
+      "label": "Panama vs Croatia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 47,
+      "date": "2026-06-23",
+      "localTime": "12:00",
+      "stage": "Group K",
+      "label": "Portugal vs Uzbekistan",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 48,
+      "date": "2026-06-23",
+      "localTime": "20:00",
+      "stage": "Group K",
+      "label": "Colombia vs Congo DR",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 49,
+      "date": "2026-06-24",
+      "localTime": "18:00",
+      "stage": "Group C",
+      "label": "Scotland vs Brazil",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 50,
+      "date": "2026-06-24",
+      "localTime": "18:00",
+      "stage": "Group C",
+      "label": "Morocco vs Haiti",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 51,
+      "date": "2026-06-24",
+      "localTime": "12:00",
+      "stage": "Group B",
+      "label": "Switzerland vs Canada",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 52,
+      "date": "2026-06-24",
+      "localTime": "12:00",
+      "stage": "Group B",
+      "label": "Bosnia and Herzegovina vs Qatar",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 53,
+      "date": "2026-06-24",
+      "localTime": "19:00",
+      "stage": "Group A",
+      "label": "Czechia vs Mexico",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 54,
+      "date": "2026-06-24",
+      "localTime": "19:00",
+      "stage": "Group A",
+      "label": "South Africa vs South Korea",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 55,
+      "date": "2026-06-25",
+      "localTime": "16:00",
+      "stage": "Group E",
+      "label": "Curaçao vs Ivory Coast",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 56,
+      "date": "2026-06-25",
+      "localTime": "16:00",
+      "stage": "Group E",
+      "label": "Ecuador vs Germany",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 57,
+      "date": "2026-06-25",
+      "localTime": "18:00",
+      "stage": "Group F",
+      "label": "Japan vs Sweden",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 58,
+      "date": "2026-06-25",
+      "localTime": "18:00",
+      "stage": "Group F",
+      "label": "Tunisia vs Netherlands",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 59,
+      "date": "2026-06-25",
+      "localTime": "19:00",
+      "stage": "Group D",
+      "label": "Türkiye vs USA",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 60,
+      "date": "2026-06-25",
+      "localTime": "19:00",
+      "stage": "Group D",
+      "label": "Paraguay vs Australia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 61,
+      "date": "2026-06-26",
+      "localTime": "15:00",
+      "stage": "Group I",
+      "label": "Norway vs France",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 62,
+      "date": "2026-06-26",
+      "localTime": "15:00",
+      "stage": "Group I",
+      "label": "Senegal vs Iraq",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 63,
+      "date": "2026-06-26",
+      "localTime": "20:00",
+      "stage": "Group G",
+      "label": "Egypt vs Iran",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 64,
+      "date": "2026-06-26",
+      "localTime": "20:00",
+      "stage": "Group G",
+      "label": "New Zealand vs Belgium",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 65,
+      "date": "2026-06-26",
+      "localTime": "19:00",
+      "stage": "Group H",
+      "label": "Cape Verde vs Saudi Arabia",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 66,
+      "date": "2026-06-26",
+      "localTime": "18:00",
+      "stage": "Group H",
+      "label": "Uruguay vs Spain",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 67,
+      "date": "2026-06-27",
+      "localTime": "17:00",
+      "stage": "Group L",
+      "label": "Panama vs England",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 68,
+      "date": "2026-06-27",
+      "localTime": "17:00",
+      "stage": "Group L",
+      "label": "Croatia vs Ghana",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 69,
+      "date": "2026-06-27",
+      "localTime": "21:00",
+      "stage": "Group J",
+      "label": "Algeria vs Austria",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 70,
+      "date": "2026-06-27",
+      "localTime": "21:00",
+      "stage": "Group J",
+      "label": "Jordan vs Argentina",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 71,
+      "date": "2026-06-27",
+      "localTime": "19:30",
+      "stage": "Group K",
+      "label": "Colombia vs Portugal",
+      "status": "Awaiting result"
+    },
+    {
+      "matchId": 72,
+      "date": "2026-06-27",
+      "localTime": "19:30",
+      "stage": "Group K",
+      "label": "Congo DR vs Uzbekistan",
+      "status": "Awaiting result"
     }
   ]
 }
