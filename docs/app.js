@@ -7,7 +7,12 @@ const number = (value) => {
 
 const text = (value, fallback = "") => {
   if (value === null || value === undefined || value === "") return fallback;
-  return String(value);
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 };
 
 const formatUpdated = (iso) => {
@@ -21,7 +26,7 @@ const formatUpdated = (iso) => {
 };
 
 const podiumCard = (player, index) => {
-  const rank = player?.rank || index + 1;
+  const rank = text(player?.rank, index + 1);
   const name = text(player?.participant, "Open spot");
   const total = number(player?.totalPoints);
   return `
